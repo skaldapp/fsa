@@ -1,0 +1,49 @@
+{
+  "$schema": "https://www.schemastore.org/package",
+  "name": "@vuebro/fsa",
+  "version": "1.0.20",
+  "description": "A TypeScript library providing a File System Access API wrapper for web applications. Offers AWS S3-like operations (get, put, delete, head) to interact with local file systems efficiently in modern browsers.",
+  "keywords": [
+    "file-system-access",
+    "web-api",
+    "file-handling",
+    "fsa-api",
+    "browser-filesystem",
+    "file-operations",
+    "s3-like-api",
+    "typescript",
+    "web-storage",
+    "local-file-system",
+    "file-upload",
+    "file-download",
+    "directory-handle",
+    "file-handle",
+    "web-platform"
+  ],
+  "homepage": "https://github.com/vuebro/fsa#readme",
+  "bugs": {
+    "url": "https://github.com/vuebro/fsa/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuebro/fsa.git"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "Jerry Bruwes <jbruwes@gmail.com> (https://jbruwes.github.io)",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ."
+  },
+  "prettier": "@vuebro/configs/prettierrc",
+  "devDependencies": {
+    "@smithy/types": "^4.11.0",
+    "@types/node": "^25.0.3",
+    "@vuebro/configs": "^1.2.34",
+    "eslint": "^9.39.2"
+  }
+}
