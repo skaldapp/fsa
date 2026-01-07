@@ -1,4 +1,4 @@
-# @vuebro/fsa
+# @skaldapp/fsa
 
 A TypeScript library that provides a wrapper around the File System Access API, enabling web applications to interact with the user's local file system in a structured way. The library mimics AWS S3-like operations (get, put, delete, head) for files and directories.
 
@@ -24,7 +24,7 @@ A TypeScript library that provides a wrapper around the File System Access API, 
 ## Installation
 
 ```bash
-npm install @vuebro/fsa
+npm install @skaldapp/fsa
 ```
 
 ## Supported Browsers
@@ -103,7 +103,7 @@ import {
   headObject, 
   getObjectBlob,
   removeEmptyDirectories
-} from '@vuebro/fsa';
+} from '@skaldapp/fsa';
 
 // Get a directory handle from the user
 const directoryHandle = await window.showDirectoryPicker();

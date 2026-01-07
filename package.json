@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.schemastore.org/package",
-  "name": "@vuebro/fsa",
+  "name": "@skaldapp/fsa",
   "version": "1.0.20",
   "description": "A TypeScript library providing a File System Access API wrapper for web applications. Offers AWS S3-like operations (get, put, delete, head) to interact with local file systems efficiently in modern browsers.",
   "keywords": [
@@ -20,13 +20,13 @@
     "file-handle",
     "web-platform"
   ],
-  "homepage": "https://github.com/vuebro/fsa#readme",
+  "homepage": "https://github.com/skaldapp/fsa#readme",
   "bugs": {
-    "url": "https://github.com/vuebro/fsa/issues"
+    "url": "https://github.com/skaldapp/fsa/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuebro/fsa.git"
+    "url": "git+https://github.com/skaldapp/fsa.git"
   },
   "license": "AGPL-3.0-only",
   "author": "Jerry Bruwes <jbruwes@gmail.com> (https://jbruwes.github.io)",
@@ -39,11 +39,11 @@
     "build": "tsc",
     "lint": "eslint ."
   },
-  "prettier": "@vuebro/configs/prettierrc",
+  "prettier": "@skaldapp/configs/prettierrc",
   "devDependencies": {
+    "@skaldapp/configs": "^1.2.41",
     "@smithy/types": "^4.11.0",
     "@types/node": "^25.0.3",
-    "@vuebro/configs": "^1.2.34",
     "eslint": "^9.39.2"
   }
 }
