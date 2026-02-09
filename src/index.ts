@@ -29,7 +29,7 @@ const getHandle = (
                   return;
                 }
             }
-          return;
+          return undefined;
         },
         Promise.resolve(Bucket),
       )
