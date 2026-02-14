@@ -41,9 +41,9 @@
   },
   "prettier": "@skaldapp/configs/prettierrc",
   "devDependencies": {
-    "@skaldapp/configs": "^1.2.58",
+    "@skaldapp/configs": "^1.2.59",
     "@smithy/types": "^4.12.0",
-    "@types/node": "^25.2.2",
+    "@types/node": "^25.2.3",
     "eslint": "^9.39.2"
   }
 }
