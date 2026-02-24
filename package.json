@@ -30,8 +30,12 @@
   },
   "license": "AGPL-3.0-only",
   "author": "Jerry Bruwes <jbruwes@gmail.com> (https://jbruwes.github.io)",
+  "sideEffects": false,
   "type": "module",
-  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -41,9 +45,9 @@
   },
   "prettier": "@skaldapp/configs/prettierrc",
   "devDependencies": {
-    "@skaldapp/configs": "^1.2.59",
-    "@smithy/types": "^4.12.0",
-    "@types/node": "^25.2.3",
-    "eslint": "^9.39.2"
+    "@skaldapp/configs": "^1.2.60",
+    "@smithy/types": "^4.12.1",
+    "@types/node": "^25.3.0",
+    "eslint": "^9.39.3"
   }
 }
