@@ -46,13 +46,16 @@ export const deleteObject = async (
       if (handle?.kind === "directory") await handle.removeEntry(name);
     }
   },
-  getObjectBlob = async (Bucket: FileSystemDirectoryHandle, Key: string) => {
+  getObject = async (Bucket: FileSystemDirectoryHandle, Key: string) => {
     const handle = await getHandle(Bucket, Key);
-    if (handle?.kind === "file") return handle.getFile();
-    else return new Blob();
+    if (handle?.kind === "file") {
+      const file = await handle.getFile(),
+        headers = new Headers({
+          "content-type": file.type,
+        });
+      return new Response(file, { headers });
+    } else return new Response();
   },
-  getObjectText = async (Bucket: FileSystemDirectoryHandle, Key: string) =>
-    (await getObjectBlob(Bucket, Key)).text(),
   headObject = async (Bucket: FileSystemDirectoryHandle, Key: string) => {
     const handle = await getHandle(Bucket, Key);
     if (handle?.kind === "file") return undefined;
@@ -88,9 +91,7 @@ export const deleteObject = async (
       for await (const value of directory.values())
         if (value.kind === "directory") values.push(value);
       await Promise.all(
-        values.map((value) =>
-          removeEmptyDirectories(value as FileSystemDirectoryHandle, exclude),
-        ),
+        values.map((value) => removeEmptyDirectories(value, exclude)),
       );
       await Promise.allSettled(
         values.map(({ name }) => directory.removeEntry(name)),
