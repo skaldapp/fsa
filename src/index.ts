@@ -1,4 +1,7 @@
-import type { StreamingBlobPayloadInputTypes } from "@smithy/types";
+import type {
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
+} from "@smithy/types";
 
 const getHandle = (
   Bucket: FileSystemDirectoryHandle,
@@ -46,15 +49,21 @@ export const deleteObject = async (
       if (handle?.kind === "directory") await handle.removeEntry(name);
     }
   },
-  getObject = async (Bucket: FileSystemDirectoryHandle, Key: string) => {
-    const handle = await getHandle(Bucket, Key);
+  getObject = async (
+    Bucket: FileSystemDirectoryHandle,
+    Key: string,
+  ): Promise<StreamingBlobPayloadOutputTypes> => {
+    const $metadata = {},
+      handle = await getHandle(Bucket, Key);
     if (handle?.kind === "file") {
-      const file = await handle.getFile(),
-        headers = new Headers({
-          "content-type": file.type,
-        });
-      return new Response(file, { headers });
-    } else return new Response();
+      const Body = await handle.getFile(),
+        { type: ContentType } = Body;
+      return {
+        $metadata,
+        Body,
+        ContentType,
+      };
+    } else return { $metadata };
   },
   headObject = async (Bucket: FileSystemDirectoryHandle, Key: string) => {
     const handle = await getHandle(Bucket, Key);
