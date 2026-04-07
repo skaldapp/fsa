@@ -40,14 +40,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "lint": "eslint ."
   },
   "prettier": "@skaldapp/configs/prettierrc",
   "devDependencies": {
-    "@skaldapp/configs": "^1.2.87",
+    "@aws-sdk/client-s3": "^3.1025.0",
+    "@skaldapp/configs": "^1.2.91",
     "@smithy/types": "^4.14.0",
-    "@types/node": "^25.5.2",
     "eslint": "^10.2.0"
   }
 }
