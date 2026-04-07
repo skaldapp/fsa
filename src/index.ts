@@ -1,3 +1,4 @@
+import type { GetObjectCommandOutput } from "@aws-sdk/client-s3";
 import type {
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
@@ -52,7 +53,7 @@ export const deleteObject = async (
   getObject = async (
     Bucket: FileSystemDirectoryHandle,
     Key: string,
-  ): Promise<StreamingBlobPayloadOutputTypes> => {
+  ): Promise<GetObjectCommandOutput> => {
     const $metadata = {},
       handle = await getHandle(Bucket, Key);
     if (handle?.kind === "file") {
@@ -60,7 +61,7 @@ export const deleteObject = async (
         { type: ContentType } = Body;
       return {
         $metadata,
-        Body,
+        Body: Body as unknown as StreamingBlobPayloadOutputTypes,
         ContentType,
       };
     } else return { $metadata };
