@@ -1,8 +1,5 @@
 import type { GetObjectCommandOutput } from "@aws-sdk/client-s3";
-import type {
-  StreamingBlobPayloadInputTypes,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import type { StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 const getHandle = (
   Bucket: FileSystemDirectoryHandle,
@@ -59,11 +56,7 @@ export const deleteObject = async (
     if (handle?.kind === "file") {
       const Body = await handle.getFile(),
         { type: ContentType } = Body;
-      return {
-        $metadata,
-        Body: Body as unknown as StreamingBlobPayloadOutputTypes,
-        ContentType,
-      };
+      return { $metadata, Body, ContentType };
     } else return { $metadata };
   },
   headObject = async (Bucket: FileSystemDirectoryHandle, Key: string) => {
