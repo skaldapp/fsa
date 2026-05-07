@@ -45,8 +45,8 @@
   },
   "prettier": "@skaldapp/configs/prettierrc",
   "devDependencies": {
-    "@aws-sdk/client-s3": "^3.1043.0",
-    "@skaldapp/configs": "^1.2.104",
+    "@aws-sdk/client-s3": "^3.1044.0",
+    "@skaldapp/configs": "^1.2.105",
     "@smithy/types": "^4.14.1",
     "eslint": "^10.3.0"
   }
